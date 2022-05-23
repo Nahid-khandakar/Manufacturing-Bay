@@ -19,6 +19,8 @@ const Login = () => {
     //login with google 
     const [signInWithGoogle, googleUser, googleLoading, googleError] = useSignInWithGoogle(auth);
 
+
+
     //for form
     const { register, formState: { errors }, handleSubmit } = useForm();
 
@@ -40,6 +42,10 @@ const Login = () => {
         const password = data.password
         signInWithEmailAndPassword(email, password)
 
+    }
+
+    const handleForgetPassword = (data) => {
+        console.log(data.email)
     }
 
 
@@ -145,6 +151,11 @@ const Login = () => {
 
                     <p className='text-s text-center'>New in manufacturing bay ? <Link to='/register' className='text-primary'>Register</Link></p>
 
+
+                    <button
+                        onClick={handleForgetPassword}
+                        className='btn btn-ghost text-amber-600 btn-xs'>or Forgot password?
+                    </button>
 
 
                     <div className="divider">OR</div>

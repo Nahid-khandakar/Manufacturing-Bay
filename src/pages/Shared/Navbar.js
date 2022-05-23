@@ -8,6 +8,7 @@ import Loading from '../Shared/Loading'
 const Navbar = () => {
 
     const [user, loading] = useAuthState(auth);
+    console.log(user)
 
     if (loading) {
         return <Loading></Loading>
@@ -26,10 +27,35 @@ const Navbar = () => {
 
         {
             user ?
-                <button className='btn btn-ghost' onClick={handleSignOut} >Log out</button>
+                <div class="dropdown dropdown-end">
+                    <div className='flex'>
+                        <h2 className='mt-3'>{user.displayName}</h2>
+
+                        <label tabindex="0" class="btn btn-ghost btn-circle avatar">
+                            <div class="w-10 rounded-full">
+                                {
+                                    user.photoURL
+                                        ?
+                                        <img src={user.photoURL} alt='user' />
+                                        :
+                                        <img src="https://api.lorem.space/image/face?hash=33791" alt='unknown' />
+                                }
+                            </div>
+                        </label>
+                    </div>
+
+
+                    <ul tabindex="0" class="menu menu-compact dropdown-content mt-3 py-2 px-4 shadow bg-base-100 rounded-box w-52">
+
+                        <li>
+                            <button className='btn btn-ghost mx-auto' onClick={handleSignOut}>Log out</button>
+                        </li>
+                    </ul>
+                </div>
                 :
                 <li><Link to='/login'>login</Link></li>
         }
+
 
     </>
 

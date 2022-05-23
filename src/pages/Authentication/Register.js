@@ -1,5 +1,5 @@
 import React from 'react';
-import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
 import auth from '../../firebase.init';
@@ -14,16 +14,20 @@ const Register = () => {
         error,
     ] = useCreateUserWithEmailAndPassword(auth);
 
+    //update profile
+    const [updateProfile, updating, updateError] = useUpdateProfile(auth);
+
     //react form 
     const { register, formState: { errors }, handleSubmit } = useForm();
 
     //click register button
-    const onSubmit = (data) => {
+    const onSubmit = async (data) => {
 
         const name = data.name
         const email = data.email
         const password = data.password
-        createUserWithEmailAndPassword(email, password)
+        await createUserWithEmailAndPassword(email, password)
+        await updateProfile({ displayName: name });
 
     }
 
