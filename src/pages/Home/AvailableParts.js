@@ -7,7 +7,7 @@ const AvailableParts = () => {
 
 
     const { data: parts, isLoading } = useQuery('parts', () =>
-        fetch("parts-data.json").then(res =>
+        fetch("http://localhost:5000/parts").then(res =>
             res.json()
         )
     )

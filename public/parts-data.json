@@ -1,6 +1,5 @@
 [
     {
-        "_id": 1,
         "name": "Belt",
         "image": "https://i.ibb.co/q15449d/Timing-belt.jpg",
         "description": "Quisque _id justo sit amet sapien dignissim vestibulum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices ",
@@ -9,7 +8,6 @@
         "price": 50
     },
     {
-        "_id": 2,
         "name": "Tire",
         "image": "https://i.ibb.co/FB0gv27/tire.jpg",
         "description": "Aliquam quis turpis eget elit sodales scelerisque. Mauris sit amet eros. Suspendisse accumsan tortor quis turpis.",
@@ -18,7 +16,6 @@
         "price": 200
     },
     {
-        "_id": 3,
         "name": "Rim",
         "image": "https://i.ibb.co/k0vJkCS/rime.jpg",
         "description": "Rim is an old-fashioned term that was used when referring to wagon wheel - thus the term wheel rim.",
@@ -27,7 +24,6 @@
         "price": 450
     },
     {
-        "_id": 4,
         "name": "Timing Belt",
         "image": "https://i.ibb.co/Qj9dnLM/timingbelt.jpg",
         "description": "The timing belt itself isn't an expensive part. The time and labor are what make it so expensive.",
@@ -36,7 +32,6 @@
         "price": 100
     },
     {
-        "_id": 5,
         "name": "Speedometer",
         "image": "https://i.ibb.co/SswfRh8/speedometer.jpg",
         "description": "The speedometer has two semicircles. Each with a set of numbers represent kilometers per hour (km/h).",
@@ -45,7 +40,6 @@
         "price": 258
     },
     {
-        "_id": 6,
         "name": "Knob",
         "image": "https://i.ibb.co/tczvxbF/knob.jpg",
         "description": "A brodie knob is a knob that attaches to the steering wheel of an equipment with a steering wheel. ",
@@ -54,7 +48,6 @@
         "price": 350
     },
     {
-        "_id": 7,
         "name": "Piston",
         "image": "https://i.ibb.co/68X6XR9/piston.jpg",
         "description": "Piston internal combustion  key is converting the fuel which  use  energy to drive the car forward.",
@@ -63,7 +56,6 @@
         "price": 1000
     },
     {
-        "_id": 8,
         "name": "Brake Disk",
         "image": "https://i.ibb.co/T1PmJmd/breakdisk.jpg",
         "description": "A brake disc is  an iron or carbon composite disc that is attached to the suspension of a car, ",
