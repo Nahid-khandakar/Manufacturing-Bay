@@ -1,0 +1,74 @@
+[
+    {
+        "id": 1,
+        "name": "Belt",
+        "image": "https://i.ibb.co/q15449d/Timing-belt.jpg",
+        "description": "Quisque id justo sit amet sapien dignissim vestibulum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices ",
+        "availableQuantity": 900,
+        "minimumQuantity": 10,
+        "price": 50
+    },
+    {
+        "id": 2,
+        "name": "Tire",
+        "image": "https://i.ibb.co/FB0gv27/tire.jpg",
+        "description": "Aliquam quis turpis eget elit sodales scelerisque. Mauris sit amet eros. Suspendisse accumsan tortor quis turpis.",
+        "availableQuantity": 525,
+        "minimumQuantity": 45,
+        "price": 200
+    },
+    {
+        "id": 3,
+        "name": "Rim",
+        "image": "https://i.ibb.co/k0vJkCS/rime.jpg",
+        "description": "Phasellus in felis. Donec semper sapien a libero. Nam dui.\n\nProin leo odio, porttitor id, consequat in,.dfgfgfgfg",
+        "availableQuantity": 929,
+        "minimumQuantity": 50,
+        "price": 450
+    },
+    {
+        "id": 4,
+        "name": "Timing Belt",
+        "image": "https://i.ibb.co/Qj9dnLM/timingbelt.jpg",
+        "description": "Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus vestibulum sagittis sapien.",
+        "availableQuantity": 2000,
+        "minimumQuantity": 80,
+        "price": 100
+    },
+    {
+        "id": 5,
+        "name": "Speedometer",
+        "image": "https://i.ibb.co/SswfRh8/speedometer.jpg",
+        "description": "Morbi porttitor lorem id ligula. Suspendisse ornare consequat lectus. In est risus, auctor sed, tristique in, tempus sit amet, sem",
+        "availableQuantity": 130,
+        "minimumQuantity": 25,
+        "price": 258
+    },
+    {
+        "id": 6,
+        "name": "Knob",
+        "image": "https://i.ibb.co/tczvxbF/knob.jpg",
+        "description": "In quis justo. Maecenas rhoncus aliquam lacus. Morbi quis tortor id nulla ultrices aliquet.\n\nMaecenas leo odio, condimentum id",
+        "availableQuantity": 1000,
+        "minimumQuantity": 40,
+        "price": 350
+    },
+    {
+        "id": 7,
+        "name": "Piston",
+        "image": "https://i.ibb.co/68X6XR9/piston.jpg",
+        "description": "In sagittis dui vel nisl. Duis ac nibh. Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus.\n\nSuspendisse potenti.",
+        "availableQuantity": 480,
+        "minimumQuantity": 5,
+        "price": 1000
+    },
+    {
+        "id": 8,
+        "name": "Brake Disk",
+        "image": "https://i.ibb.co/T1PmJmd/breakdisk.jpg",
+        "description": "Mauris enim leo, rhoncus sed, vestibulum sit amet, cursus id, turpis. Integer aliquet, massa id lobortis convallis.",
+        "availableQuantity": 521,
+        "minimumQuantity": 30,
+        "price": 408
+    }
+]
