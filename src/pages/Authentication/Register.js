@@ -1,5 +1,6 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import { Link } from 'react-router-dom';
 
 const Register = () => {
 
@@ -20,12 +21,12 @@ const Register = () => {
 
         <div className="bg-base-100">
 
-            <div className="text-center my-8">
-                <h1 className="text-4xl font-bold text-primary">Login now!</h1>
+            <div className="text-center my-5">
+                <h1 className="text-4xl font-bold text-primary">Register</h1>
             </div>
 
             {/*card body */}
-            <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100 mx-auto mt-14">
+            <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100 mx-auto mt-8">
 
 
                 <div className="card-body">
@@ -60,8 +61,8 @@ const Register = () => {
 
                             <label className="label">
 
-                                {errors.name?.type === 'required' && <span className="label-text-alt text-amber-600">{errors.name.message}</span>}
-                                {errors.name?.type === 'pattern' && <span className="label-text-alt text-amber-600">{errors.name.message}</span>}
+                                {errors.name?.type === 'required' && <span className="label-text-alt text-warning">{errors.name.message}</span>}
+                                {errors.name?.type === 'pattern' && <span className="label-text-alt text-warning">{errors.name.message}</span>}
 
                             </label>
                         </div>
@@ -94,8 +95,8 @@ const Register = () => {
 
                             <label className="label">
 
-                                {errors.email?.type === 'required' && <span className="label-text-alt text-amber-600">{errors.email.message}</span>}
-                                {errors.email?.type === 'pattern' && <span className="label-text-alt text-amber-600">{errors.email.message}</span>}
+                                {errors.email?.type === 'required' && <span className="label-text-alt text-warning">{errors.email.message}</span>}
+                                {errors.email?.type === 'pattern' && <span className="label-text-alt text-warning">{errors.email.message}</span>}
 
                             </label>
 
@@ -130,8 +131,8 @@ const Register = () => {
 
                             <label className="label">
 
-                                {errors.password?.type === 'required' && <span className="label-text-alt text-amber-600">{errors.password.message}</span>}
-                                {errors.password?.type === 'minLength' && <span className="label-text-alt text-amber-600">{errors.password.message}</span>}
+                                {errors.password?.type === 'required' && <span className="label-text-alt text-warning">{errors.password.message}</span>}
+                                {errors.password?.type === 'minLength' && <span className="label-text-alt text-warning">{errors.password.message}</span>}
 
                             </label>
 
@@ -139,13 +140,13 @@ const Register = () => {
 
                         <div className="form-control mt-6">
 
-                            <input className="btn btn-primary uppercase" type="submit" value='Register' />
+                            <input className="btn btn-primary uppercase text-white" type="submit" value='Register' />
 
                         </div>
 
                     </form>
 
-
+                    <p className='text-s text-center'>Already have an account ? <Link to='/login' className='text-primary'>login</Link></p>
 
                 </div>
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import { Link } from 'react-router-dom';
 
 const Login = () => {
 
@@ -7,25 +8,130 @@ const Login = () => {
 
     const onSubmit = (data) => {
 
-        const firstName = data.firstName
-        const lastName = data.lastName
 
-        console.log(firstName, lastName)
+        const email = data.email
+        const password = data.password
+
+        console.log(email, password)
 
     }
 
 
     return (
-        <div>
-            <form onSubmit={handleSubmit(onSubmit)}>
-                <input {...register("firstName", { required: true })} />
-                {errors.firstName?.type === 'required' && "First name is required"}
+        <div className="bg-base-100">
 
-                <input {...register("lastName", { required: true })} />
-                {errors.lastName && "Last name is required"}
+            <div className="text-center my-5">
+                <h1 className="text-4xl font-bold text-primary">Login</h1>
+            </div>
 
-                <input type="submit" value='register' />
-            </form>
+            {/*card body */}
+            <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100 mx-auto mt-8">
+
+
+                <div className="card-body">
+
+
+
+                    <form onSubmit={handleSubmit(onSubmit)}>
+
+
+
+                        {/* for email */}
+                        <div className='form-control'>
+                            <label className="label">
+                                <span className="label-text">Email</span>
+                            </label>
+
+
+                            <input
+                                type='email'
+                                placeholder='Your email'
+                                class="input input-bordered"
+
+                                {...register("email", {
+                                    required: {
+                                        value: true,
+                                        message: 'Email is required'
+                                    },
+                                    pattern: {
+                                        value: /[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}/,
+                                        message: 'Email is not correct'
+                                    }
+                                })} />
+
+
+
+                            <label className="label">
+
+                                {errors.email?.type === 'required' && <span className="label-text-alt text-warning">{errors.email.message}</span>}
+                                {errors.email?.type === 'pattern' && <span className="label-text-alt text-warning">{errors.email.message}</span>}
+
+                            </label>
+
+                        </div>
+
+
+                        {/* for password */}
+
+                        <div className='form-control'>
+                            <label className="label">
+                                <span className="label-text">Password</span>
+                            </label>
+
+
+                            <input
+                                type='password'
+                                placeholder='password'
+                                class="input input-bordered"
+
+                                {...register("password", {
+                                    required: {
+                                        value: true,
+                                        message: 'set a password'
+                                    },
+                                    minLength: {
+                                        value: 6,
+                                        message: 'Use minimum 6 digit'
+                                    }
+                                })} />
+
+
+
+                            <label className="label">
+
+                                {errors.password?.type === 'required' && <span className="label-text-alt text-warning">{errors.password.message}</span>}
+                                {errors.password?.type === 'minLength' && <span className="label-text-alt text-warning">{errors.password.message}</span>}
+
+                            </label>
+
+                        </div>
+
+                        <div className="form-control mt-6">
+
+                            <input className="btn btn-primary uppercase text-white" type="submit" value='login' />
+
+                        </div>
+
+                    </form>
+
+                    <p className='text-s text-center'>New in manufacturing bay ? <Link to='/register' className='text-primary'>Register</Link></p>
+
+                </div>
+
+
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
         </div>
     );
 };
