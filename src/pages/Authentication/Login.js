@@ -1,20 +1,47 @@
 import React from 'react';
+import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
+import auth from '../../firebase.init';
+import Loading from '../Shared/Loading'
 
 
 const Login = () => {
 
+    //log in with email and pass
+    const [
+        signInWithEmailAndPassword,
+        user,
+        loading,
+        error,
+    ] = useSignInWithEmailAndPassword(auth);
 
+    //login with google 
+    const [signInWithGoogle, googleUser, googleLoading, googleError] = useSignInWithGoogle(auth);
+
+    //for form
     const { register, formState: { errors }, handleSubmit } = useForm();
+
+
+    //error and loading
+    let setError;
+
+    if (loading || googleLoading) {
+        return <Loading></Loading>
+    }
+
+    if (error || googleError) {
+        setError = <p>{error?.message || googleError?.message}</p>
+    }
 
     //click register button
     const onSubmit = (data) => {
         const email = data.email
         const password = data.password
-        console.log(email, password)
+        signInWithEmailAndPassword(email, password)
 
     }
+
 
 
     return (
@@ -87,7 +114,7 @@ const Login = () => {
                                 {...register("password", {
                                     required: {
                                         value: true,
-                                        message: 'set a password'
+                                        message: 'Password is required'
                                     },
                                     minLength: {
                                         value: 6,
@@ -106,6 +133,8 @@ const Login = () => {
 
                         </div>
 
+
+                        {setError}
                         <div className="form-control mt-6">
 
                             <input className="btn btn-primary uppercase text-white" type="submit" value='login' />
@@ -116,9 +145,19 @@ const Login = () => {
 
                     <p className='text-s text-center'>New in manufacturing bay ? <Link to='/register' className='text-primary'>Register</Link></p>
 
+
+
+                    <div className="divider">OR</div>
+
+
+                    <button
+                        onClick={() => signInWithGoogle()}
+                        className="btn btn-outline btn-primary">
+                        Continue with google
+                    </button>
+
+
                 </div>
-
-
             </div>
 
 
