@@ -1,4 +1,5 @@
 import React from 'react';
+import { BsChevronDoubleDown } from 'react-icons/bs';
 import bannerImage from '../../assest/image/bannerImage.jpg'
 
 const Banner = () => {
@@ -11,7 +12,10 @@ const Banner = () => {
                     <h1 className="md:text-4xl xl:text-5xl font-semibold text-primary">Manufacturing Bay</h1>
                     <p className="py-6 text-justify">Welcome to manufacturing bay , Here we manufacture car parts . we manufacture car brake disk , knob , piston , turbine, rime , speedometer ect</p>
 
-                    <button className="btn btn-primary text-white">Explore More</button>
+                    <button className="btn btn-primary text-white">
+                        Explore More
+                        <span className='p-2 text-xl'><BsChevronDoubleDown /></span>
+                    </button>
                 </div>
             </div>
         </div>

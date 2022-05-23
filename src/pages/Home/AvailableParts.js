@@ -17,7 +17,7 @@ const AvailableParts = () => {
     }
 
     return (
-        <div className='py-8 uppercase'>
+        <div className='py-10 uppercase'>
             <h2 className='text-3xl text-center text-primary font-semibold'>Available Parts</h2>
 
             <div className="flex justify-center mx-auto mt-2">
