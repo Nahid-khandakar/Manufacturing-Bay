@@ -79,7 +79,7 @@ const Login = () => {
                             <input
                                 type='email'
                                 placeholder='Your email'
-                                class="input input-bordered"
+                                className="input input-bordered"
 
                                 {...register("email", {
                                     required: {
@@ -115,7 +115,7 @@ const Login = () => {
                             <input
                                 type='password'
                                 placeholder='password'
-                                class="input input-bordered"
+                                className="input input-bordered"
 
                                 {...register("password", {
                                     required: {

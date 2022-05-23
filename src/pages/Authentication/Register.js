@@ -59,7 +59,7 @@ const Register = () => {
                             <input
                                 type='text'
                                 placeholder='Your name'
-                                class="input input-bordered"
+                                className="input input-bordered"
                                 {...register("name", {
 
                                     required: {
@@ -92,7 +92,7 @@ const Register = () => {
                             <input
                                 type='email'
                                 placeholder='Your email'
-                                class="input input-bordered"
+                                className="input input-bordered"
 
                                 {...register("email", {
                                     required: {
@@ -128,7 +128,7 @@ const Register = () => {
                             <input
                                 type='password'
                                 placeholder='password'
-                                class="input input-bordered"
+                                className="input input-bordered"
 
                                 {...register("password", {
                                     required: {

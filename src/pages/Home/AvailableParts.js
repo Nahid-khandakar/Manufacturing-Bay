@@ -29,7 +29,7 @@ const AvailableParts = () => {
             <div className='grid md:grid-cols-1 xl:grid-cols-3'>
                 {
                     parts.slice(-6).map(part => <PartsCard
-                        key={part.id}
+                        key={part._id}
                         part={part}
 
                     >

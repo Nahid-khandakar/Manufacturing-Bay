@@ -1,8 +1,9 @@
 import React from 'react';
 import { CgNametag } from 'react-icons/cg';
+import { Link } from 'react-router-dom';
 
 const PartsCard = ({ part }) => {
-    const { name, image, description, availableQuantity, minimumQuantity, price } = part
+    const { _id, name, image, description, availableQuantity, minimumQuantity, price } = part
 
 
     return (
@@ -41,7 +42,7 @@ const PartsCard = ({ part }) => {
 
 
                     <div className="card-actions justify-end">
-                        <button className="btn btn-primary text-white">Purchase</button>
+                        <Link to={`/purchase/${_id}`} className="btn btn-primary text-white">Purchase</Link>
                     </div>
 
 
