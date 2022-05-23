@@ -8,10 +8,11 @@ const Register = () => {
 
     const onSubmit = (data) => {
 
-        const firstName = data.firstName
-        const lastName = data.lastName
+        const name = data.name
+        const email = data.email
+        const password = data.password
 
-        console.log(firstName, lastName)
+        console.log(name, email, password)
 
     }
 
@@ -33,34 +34,112 @@ const Register = () => {
 
                     <form onSubmit={handleSubmit(onSubmit)}>
 
+                        {/* for name */}
+                        <div className='form-control'>
 
-                        <div>
+                            <label className="label">
+                                <span className="label-text">Name</span>
+                            </label>
+
+                            <input
+                                type='text'
+                                placeholder='Your name'
+                                class="input input-bordered"
+                                {...register("name", {
+
+                                    required: {
+                                        value: true,
+                                        message: 'Name is required'
+                                    },
+                                    pattern: {
+                                        value: /^([^0-9]*)$/,
+                                        message: 'No number allow in name'
+                                    }
+
+                                })} />
+
+                            <label className="label">
+
+                                {errors.name?.type === 'required' && <span className="label-text-alt text-amber-600">{errors.name.message}</span>}
+                                {errors.name?.type === 'pattern' && <span className="label-text-alt text-amber-600">{errors.name.message}</span>}
+
+                            </label>
+                        </div>
+
+
+                        {/* for email */}
+                        <div className='form-control'>
                             <label className="label">
                                 <span className="label-text">Email</span>
                             </label>
-                            <input {...register("firstName", { required: true })} class="input w-full input-bordered" />
-                            {errors.firstName?.type === 'required' && "First name is required"}
+
+
+                            <input
+                                type='email'
+                                placeholder='Your email'
+                                class="input input-bordered"
+
+                                {...register("email", {
+                                    required: {
+                                        value: true,
+                                        message: 'Email is required'
+                                    },
+                                    pattern: {
+                                        value: /[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}/,
+                                        message: 'Email is not correct'
+                                    }
+                                })} />
+
+
+
+                            <label className="label">
+
+                                {errors.email?.type === 'required' && <span className="label-text-alt text-amber-600">{errors.email.message}</span>}
+                                {errors.email?.type === 'pattern' && <span className="label-text-alt text-amber-600">{errors.email.message}</span>}
+
+                            </label>
+
                         </div>
 
-                        <div>
+
+                        {/* for password */}
+
+                        <div className='form-control'>
                             <label className="label">
                                 <span className="label-text">Password</span>
                             </label>
 
 
-                            <input {...register("lastName", { required: true })} class="input w-full input-bordered" />
-                            {errors.lastName && "Last name is required"}
+                            <input
+                                type='password'
+                                placeholder='password'
+                                class="input input-bordered"
+
+                                {...register("password", {
+                                    required: {
+                                        value: true,
+                                        message: 'set a password'
+                                    },
+                                    minLength: {
+                                        value: 6,
+                                        message: 'Use minimum 6 digit'
+                                    }
+                                })} />
+
 
 
                             <label className="label">
-                                <a href="/" className="label-text-alt link link-hover">Forgot password?</a>
-                            </label>
-                        </div>
 
+                                {errors.password?.type === 'required' && <span className="label-text-alt text-amber-600">{errors.password.message}</span>}
+                                {errors.password?.type === 'minLength' && <span className="label-text-alt text-amber-600">{errors.password.message}</span>}
+
+                            </label>
+
+                        </div>
 
                         <div className="form-control mt-6">
 
-                            <input className="btn btn-primary" type="submit" value='Register' />
+                            <input className="btn btn-primary uppercase" type="submit" value='Register' />
 
                         </div>
 
