@@ -41,7 +41,7 @@ const PartsCard = ({ part }) => {
 
 
                     <div className="card-actions justify-end">
-                        <button className="btn btn-primary text-white">Buy Now</button>
+                        <button className="btn btn-primary text-white">Purchase</button>
                     </div>
 
 
