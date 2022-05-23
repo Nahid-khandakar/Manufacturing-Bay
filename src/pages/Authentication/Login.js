@@ -2,16 +2,16 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
 
+
 const Login = () => {
+
 
     const { register, formState: { errors }, handleSubmit } = useForm();
 
+    //click register button
     const onSubmit = (data) => {
-
-
         const email = data.email
         const password = data.password
-
         console.log(email, password)
 
     }
@@ -120,15 +120,6 @@ const Login = () => {
 
 
             </div>
-
-
-
-
-
-
-
-
-
 
 
 
