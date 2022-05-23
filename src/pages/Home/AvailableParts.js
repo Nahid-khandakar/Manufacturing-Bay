@@ -1,16 +1,20 @@
-import React, { useEffect, useState } from 'react';
+import { useQuery } from 'react-query';
+import Loading from '../Shared/Loading';
 import PartsCard from './PartsCard';
 
 const AvailableParts = () => {
 
-    const [parts, setParts] = useState([])
 
-    console.log(parts)
-    useEffect(() => {
-        fetch("parts-data.json")
-            .then(res => res.json())
-            .then(data => setParts(data))
-    }, [])
+
+    const { data: parts, isLoading } = useQuery('parts', () =>
+        fetch("parts-data.json").then(res =>
+            res.json()
+        )
+    )
+
+    if (isLoading) {
+        return <Loading></Loading>
+    }
 
     return (
         <div className='py-8 uppercase'>
@@ -24,7 +28,7 @@ const AvailableParts = () => {
 
             <div className='grid md:grid-cols-1 xl:grid-cols-3'>
                 {
-                    parts.map(part => <PartsCard
+                    parts.slice(-6).map(part => <PartsCard
                         key={part.id}
                         part={part}
 
