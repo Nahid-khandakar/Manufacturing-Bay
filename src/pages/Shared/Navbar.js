@@ -21,6 +21,10 @@ const Navbar = () => {
     const navItem = <>
 
         <li><Link to='/home'>Home</Link></li>
+        {
+            user && <li><Link to='/dashboard'>Dashboard</Link></li>
+        }
+
         <li><Link to='/blog'>Blog</Link></li>
         <li><Link to='/myPortfolio'>My Portfolio</Link></li>
 
@@ -55,6 +59,7 @@ const Navbar = () => {
                 :
                 <li><Link to='/login'>login</Link></li>
         }
+
 
 
     </>
