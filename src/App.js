@@ -8,6 +8,8 @@ import Home from './pages/Home/Home';
 import MyPortfolio from './pages/MyPortfolio/MyPortfolio';
 import Purchase from './pages/Purchase/Purchase';
 import Navbar from './pages/Shared/Navbar';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   return (
@@ -35,6 +37,8 @@ function App() {
 
 
       </Routes>
+
+      <ToastContainer />
 
     </div>
   );

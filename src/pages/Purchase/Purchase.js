@@ -1,9 +1,11 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useQuery } from 'react-query';
 import { useParams } from 'react-router-dom';
 import Loading from '../Shared/Loading'
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
+import { set } from 'react-hook-form';
+import { toast } from 'react-toastify';
 
 
 const Purchase = () => {
@@ -13,7 +15,8 @@ const Purchase = () => {
     const [user, loading] = useAuthState(auth);
     //console.log(user)
 
-    const [quantityError, setQuantityError] = useState(true)
+    const [quantityError, setQuantityError] = useState(false)
+
 
     const url = `http://localhost:5000/purchase/${id}`
     const { data: purchaseItem, isLoading } = useQuery('purchaseItem', () =>
@@ -22,36 +25,44 @@ const Purchase = () => {
         )
     )
 
-
-
-
-
     if (isLoading || loading) {
         return <Loading></Loading>
     }
 
 
-
-
-    const handleQuantity = (event) => {
+    const handlePurchaseForm = (event) => {
 
         event.preventDefault();
-        const minimum = purchaseItem.minimumQuantity
-        const maximum = purchaseItem.availableQuantity
+        const totalParts = purchaseItem.availableQuantity
+        const minimumOrderParts = purchaseItem.minimumQuantity
 
-        const inputQuantity = event.target.partsQuantity.value
+        const name = purchaseItem.name
+        const userName = user?.displayName
+        const email = user?.email
+        const quantity = event.target.quantity.value
+        const price = purchaseItem.price
+        const number = event.target.number.value
+        const address = event.target.address.value
+
+        //console.log(name, userName, email, quantity, totalPrice, number, address)
 
 
-        if (inputQuantity > minimum && inputQuantity <= maximum) {
-            console.log(inputQuantity, minimum, maximum)
-            setQuantityError(true)
-        } else {
-            console.log('fuck you bitch')
+
+
+        if (quantity >= minimumOrderParts && quantity <= totalParts) {
+            const totalPrice = quantity * price
+
             setQuantityError(false)
+            toast.success(`Thanks for purchase ${purchaseItem.name} , your bill  ${totalPrice} $`)
         }
-
-
+        else {
+            setQuantityError(true)
+            event.target.reset()
+            toast.warning(`set quantity minimum purchase or less then available parts`)
+        }
     }
+
+
 
 
     return (
@@ -89,36 +100,6 @@ const Purchase = () => {
                                 </p>
                             </div>
 
-                            <hr />
-
-                            {/* quantity add */}
-                            <div>
-                                <form className='px-3 mt-4' onSubmit={handleQuantity}>
-                                    <p className='text-warning text-l font-bold'>How much parts you need</p>
-
-                                    <input
-                                        type="number"
-                                        placeholder={`Minimum Quantity ${purchaseItem.minimumQuantity}`}
-                                        className="input w-full max-w-xs"
-                                        name='partsQuantity'
-                                    />
-
-                                    <input
-                                        type='submit'
-                                        className='btn btn-primary ml-2 text-white' value='Quantity'>
-                                    </input>
-                                </form>
-
-                                {
-                                    quantityError === false ?
-                                        <p>give another war</p>
-                                        :
-                                        ''
-                                }
-                            </div>
-
-
-
                         </div>
                     </div>
 
@@ -129,17 +110,17 @@ const Purchase = () => {
                             <p className="leading-relaxed mb-4 text-2xl font-semibold text-primary">Customer purchase details</p>
                             <hr />
 
-                            <form className=''>
+                            <form className='' onSubmit={handlePurchaseForm}>
 
                                 <div className='my-2'>
                                     <input type="text" class="input input-bordered  w-full max-w-sm"
-                                        value={purchaseItem.name} readOnly
+                                        value={purchaseItem.name} disabled
                                     />
                                 </div>
 
                                 <div className='my-2'>
                                     <input type="text" class="input input-bordered w-full max-w-sm"
-                                        value={user?.displayName} readOnly
+                                        value={user?.displayName} disabled
                                     />
 
                                 </div>
@@ -147,6 +128,7 @@ const Purchase = () => {
                                 <div className='my-2'>
                                     <input type="email" class="input input-bordered  w-full max-w-sm"
                                         value={user?.email}
+                                        disabled
                                     />
                                 </div>
 
@@ -154,13 +136,20 @@ const Purchase = () => {
 
                                 {/* quantity */}
                                 <div className='my-2'>
-                                    <input type="number" placeholder="Quantity" class="input input-bordered  w-full max-w-sm" />
+                                    <input type="number" name='quantity' defaultValue={purchaseItem.minimumQuantity} placeholder="Quantity" className="input input-bordered  w-full max-w-sm" />
 
-                                </div>
+                                    {
+                                        quantityError === true ?
 
-                                {/* price */}
-                                <div className='my-2'>
-                                    <input type="number" placeholder="Price" class="input input-bordered w-full max-w-sm" />
+
+
+                                            <p className='ml-3 text-warning'>Wrong purchase quantity</p>
+
+                                            :
+
+                                            ''
+
+                                    }
                                 </div>
 
 
@@ -168,18 +157,21 @@ const Purchase = () => {
                                     <input
                                         type="number"
                                         placeholder="phone number"
-                                        name='Phone Number'
-                                        class="input input-bordered  w-full max-w-sm" />
+                                        name='number'
+                                        className="input input-bordered  w-full max-w-sm" />
                                 </div>
 
                                 <div className='my-2'>
-                                    <input type="text" placeholder="Address" class="input input-bordered w-full max-w-sm" />
+                                    <input type="text" name='address' placeholder="Address" className="input input-bordered w-full max-w-sm" />
                                 </div>
 
+                                {
+                                    quantityError === true ?
+                                        <input className='btn btn-primary text-white my-2 w-full max-w-sm' disabled type="submit" value='Confirm purchase' />
+                                        :
+                                        <input className='btn btn-primary text-white my-2 w-full max-w-sm' type="submit" value='Confirm purchase' />
+                                }
 
-
-
-                                <input className='btn btn-primary text-white my-2 w-full max-w-sm' type="submit" value='Confirm purchase' />
 
                             </form>
 
