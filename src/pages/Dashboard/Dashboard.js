@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link, Outlet } from 'react-router-dom';
+import { FaArrowRight } from 'react-icons/fa';
+
 
 const Dashboard = () => {
     return (
@@ -13,12 +15,14 @@ const Dashboard = () => {
                     <h3 className='text-3xl text-secondary font-bold my-3'>Dashboard</h3>
                     <hr />
                     <Outlet></Outlet>
-                    <label for="my-drawer-2" className="btn btn-primary drawer-button lg:hidden">Open drawer</label>
+                    <label htmlFor="my-drawer-2" className="btn btn-primary text-white drawer-button lg:hidden">
+                        <FaArrowRight />
+                    </label>
                 </div>
 
 
                 <div className="drawer-side">
-                    <label for="my-drawer-2" className="drawer-overlay"></label>
+                    <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
                     <ul className="menu px-6 py-12 overflow-y-auto w-80 bg-base-100 text-base-content">
 
 

@@ -3,11 +3,13 @@ import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
+import MyOrderTable from './MyOrderTable';
+
 
 
 const MyOrder = () => {
 
-    const [user, loading] = useAuthState(auth);
+    const [user] = useAuthState(auth);
     const [myOrders, setMyOrders] = useState([])
     const navigate = useNavigate()
 
@@ -42,8 +44,8 @@ const MyOrder = () => {
     return (
         <div>
             {
-                <div class="overflow-x-auto">
-                    <table class="table table-zebra w-full">
+                <div className="overflow-x-auto">
+                    <table className="table table-zebra w-full">
 
                         <thead>
                             <tr>
@@ -52,22 +54,21 @@ const MyOrder = () => {
                                 <th>Quantity</th>
                                 <th> Total Price</th>
                                 <th>Payment</th>
+                                <th>Delete</th>
+
                             </tr>
                         </thead>
 
-                        {
-                            myOrders.map((order, index) => <tbody>
+                        <tbody>
+                            {
+                                myOrders.map((order, index) => <MyOrderTable
+                                    key={order._id}
+                                    index={index}
+                                    order={order}
+                                ></MyOrderTable>)
+                            }
+                        </tbody>
 
-                                <tr key={order._id}>
-                                    <th>{index + 1}</th>
-                                    <td>{order.partsName}</td>
-                                    <td>{order.orderPartsQuantity}</td>
-                                    <td>{order.price}</td>
-                                    <td>hello</td>
-                                </tr>
-
-                            </tbody>)
-                        }
                     </table>
                 </div>
             }
