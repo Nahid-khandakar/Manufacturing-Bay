@@ -1,10 +1,14 @@
 import React from 'react';
 import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
+import useToken from '../../hook/useToken';
+import Loading from '../Shared/Loading';
 
 const Register = () => {
+
+    const navigate = useNavigate()
 
     //for email and pass register
     const [
@@ -19,6 +23,23 @@ const Register = () => {
 
     //react form 
     const { register, formState: { errors }, handleSubmit } = useForm();
+
+
+    // use token hook
+    const [token] = useToken(user)
+
+    if (token) {
+        navigate('/')
+    }
+
+    if (loading || updating) {
+        return <Loading></Loading>
+    }
+
+    let signInError
+    if (error || updateError) {
+        signInError = <p>{error?.message || updateError?.message}</p>
+    }
 
     //click register button
     const onSubmit = async (data) => {
@@ -159,7 +180,7 @@ const Register = () => {
                         </div>
 
                     </form>
-
+                    {signInError}
                     <p className='text-s text-center'>Already have an account ? <Link to='/login' className='text-primary'>login</Link></p>
 
                 </div>

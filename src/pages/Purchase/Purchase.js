@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useQuery } from 'react-query';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import Loading from '../Shared/Loading'
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
@@ -84,7 +84,8 @@ const Purchase = () => {
             })
                 .then(res => res.json())
                 .then(data => {
-                    console.log(data)
+                    //console.log(data)
+                    event.target.reset()
                     refetch()
                 })
 
@@ -133,6 +134,11 @@ const Purchase = () => {
                                     <span className='text-yellow-600 ml-1'>{purchaseItem.price}</span>
 
                                 </p>
+
+
+                                <button className='btn btn-primary my-5 mx-3 text-white'>
+                                    <Link to="/home">Home</Link>
+                                </button>
                             </div>
 
                         </div>
@@ -171,7 +177,7 @@ const Purchase = () => {
 
                                 {/* quantity */}
                                 <div className='my-2'>
-                                    <input type="number" name='quantity' defaultValue={purchaseItem?.minimumQuantity} placeholder="Quantity" className="input input-bordered  w-full max-w-sm" />
+                                    <input type="number" name='quantity' placeholder={`minimum quantity ${purchaseItem?.minimumQuantity}`} className="input input-bordered  w-full max-w-sm" required />
 
                                     {
                                         quantityError === true ?
@@ -211,6 +217,7 @@ const Purchase = () => {
                             </form>
 
                         </div>
+
                     </div>
 
 
