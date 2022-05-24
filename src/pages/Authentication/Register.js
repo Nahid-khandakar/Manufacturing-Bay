@@ -189,16 +189,6 @@ const Register = () => {
             </div>
 
 
-
-
-
-
-
-
-
-
-
-
         </div>
 
     );
