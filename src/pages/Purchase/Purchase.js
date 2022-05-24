@@ -15,11 +15,12 @@ const Purchase = () => {
     const [user, loading] = useAuthState(auth);
     //console.log(user)
 
+    //console.log(user.email)
     const [quantityError, setQuantityError] = useState(false)
 
 
     const url = `http://localhost:5000/purchase/${id}`
-    const { data: purchaseItem, isLoading } = useQuery('purchaseItem', () =>
+    const { data: purchaseItem, isLoading, refetch } = useQuery('purchaseItem', () =>
         fetch(url).then(res =>
             res.json()
         )
@@ -36,24 +37,58 @@ const Purchase = () => {
         const totalParts = purchaseItem.availableQuantity
         const minimumOrderParts = purchaseItem.minimumQuantity
 
-        const name = purchaseItem.name
-        const userName = user?.displayName
-        const email = user?.email
-        const quantity = event.target.quantity.value
+
+        const inputQuantity = event.target.quantity.value
+        const quantity = parseInt(inputQuantity)
         const price = purchaseItem.price
         const number = event.target.number.value
         const address = event.target.address.value
 
         //console.log(name, userName, email, quantity, totalPrice, number, address)
-
+        console.log(typeof quantity, quantity)
 
 
 
         if (quantity >= minimumOrderParts && quantity <= totalParts) {
+
+            const name = purchaseItem.name
+            const email = user?.email
+
+            const restParts = totalParts - quantity
             const totalPrice = quantity * price
+            console.log("q", typeof quantity)
+            console.log("parts", typeof restParts, restParts)
+            console.log("price", typeof totalPrice, totalPrice)
 
             setQuantityError(false)
             toast.success(`Thanks for purchase ${purchaseItem.name} , your bill  ${totalPrice} $`)
+
+
+
+            const purchaseFormData = {
+                partsName: name,
+                purchaseEmail: email,
+                availableQuantity: restParts,
+                price: totalPrice,
+                orderPartsQuantity: quantity,
+                phone: number,
+                address: address
+            }
+
+
+            fetch(`http://localhost:5000/parts/${id}`, {
+                method: 'PUT',
+                headers: {
+                    'content-type': 'application/json'
+                }, body: JSON.stringify(purchaseFormData)
+            })
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data)
+                    refetch()
+                })
+
+
         }
         else {
             setQuantityError(true)
@@ -136,7 +171,7 @@ const Purchase = () => {
 
                                 {/* quantity */}
                                 <div className='my-2'>
-                                    <input type="number" name='quantity' defaultValue={purchaseItem.minimumQuantity} placeholder="Quantity" className="input input-bordered  w-full max-w-sm" />
+                                    <input type="number" name='quantity' defaultValue={purchaseItem?.minimumQuantity} placeholder="Quantity" className="input input-bordered  w-full max-w-sm" />
 
                                     {
                                         quantityError === true ?
