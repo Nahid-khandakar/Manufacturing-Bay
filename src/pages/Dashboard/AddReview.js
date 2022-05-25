@@ -1,6 +1,45 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { toast } from 'react-toastify';
+import auth from '../../firebase.init';
+import Loading from '../Shared/Loading';
 
 const AddReview = () => {
+
+    const [reviewError, setReviewError] = useState(false)
+    const [user, loading] = useAuthState(auth);
+
+    if (loading) {
+        return <Loading></Loading>
+    }
+
+    const handleReviewForm = (event) => {
+        event.preventDefault();
+
+        const email = event.target.email.value
+        const rating = event.target.rating.value
+        const review = event.target.review.value
+
+
+
+        if (rating > 0 && rating <= 5) {
+
+            fetch(`http://localhost:5000/userReview/${user.email}`, {
+                method: 'GET',
+                headers: {
+                    authorization: `Bearer ${localStorage.getItem("accessToken")}`
+                }
+            })
+
+
+            setReviewError(false)
+            toast.success('Review save successfully')
+        } else {
+            toast.error('Something error')
+            setReviewError(true)
+        }
+
+    }
     return (
 
         <div className='mt-5'>
@@ -10,7 +49,7 @@ const AddReview = () => {
                 <h2 className="text-3xl font-semibold text-center text-primary">Give Your Review</h2>
 
                 {/* main form */}
-                <form className="mt-6">
+                <form className="mt-6" onSubmit={handleReviewForm}>
 
 
                     {/* email and rating */}
@@ -20,6 +59,7 @@ const AddReview = () => {
                             <label className="block mb-2 text-sm font-medium text-primary">Email</label>
 
                             <input
+                                name='email'
                                 placeholder='Your email'
                                 className="block w-full px-4 py-2 text-gray-700 bg-base-100 rounded-md " type="email" required />
                         </div>
@@ -28,8 +68,15 @@ const AddReview = () => {
                             <label className="block mb-2 text-sm font-medium text-primary">Rating</label>
 
                             <input
+                                name='rating'
                                 placeholder='Give rating between 1 to 5'
                                 className="block w-full px-4 py-2 text-gray-700 bg-base-100 rounded-md " type="number" />
+                            {
+                                reviewError === true ?
+                                    <p>Rating must be between 1 to 5</p>
+                                    :
+                                    " "
+                            }
                         </div>
 
                     </div>
@@ -39,8 +86,9 @@ const AddReview = () => {
                         <label className="block mb-2 text-sm font-medium text-primary">Review</label>
 
                         <textarea
+                            name='review'
                             placeholder='Write your review'
-                            className="block w-full h-40 px-4 py-2 border rounded-md bg-base-100 "></textarea>
+                            className="block w-full h-40 px-4 py-2 border rounded-md bg-base-100 " required></textarea>
                     </div>
 
 
@@ -49,7 +97,6 @@ const AddReview = () => {
                         <input type="submit" value="Add Review" className="px-4 py-2  btn btn-primary text-white  rounded-md" />
 
                     </div>
-
 
 
                 </form>
