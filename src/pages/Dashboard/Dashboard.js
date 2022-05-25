@@ -26,9 +26,10 @@ const Dashboard = () => {
                     <ul className="menu px-6 py-12 overflow-y-auto w-80 bg-base-100 text-base-content">
 
 
-                        <li className='uppercase font-bold'><Link to='/dashboard'>My order</Link></li>
+                        <li className='uppercase font-bold'><Link to='/dashboard'>My Profile</Link></li>
+                        <li className='uppercase font-bold'><Link to='/dashboard/myorder'>My Order</Link></li>
                         <li className='uppercase font-bold'><Link to='/dashboard/addreview'>Add Review</Link></li>
-                        <li className='uppercase font-bold'><Link to='/dashboard/myprofile'>My Profile</Link></li>
+
 
 
                     </ul>

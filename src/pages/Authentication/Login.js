@@ -63,7 +63,7 @@ const Login = () => {
 
 
     return (
-        <div className="bg-base-100">
+        <div className="bg-base-100 my-10">
 
             <div className="text-center my-5">
                 <h1 className="text-4xl font-bold text-primary">Login</h1>

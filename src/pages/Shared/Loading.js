@@ -2,7 +2,7 @@ import React from 'react';
 
 const Loading = () => {
     return (
-        <div className="flex items-center justify-center mt-40 ">
+        <div className="flex items-center justify-center min-h-screen mt-40 ">
             <div className="w-24 h-24 border-l-2 border-primary rounded-full animate-spin"></div>
         </div>
     );
