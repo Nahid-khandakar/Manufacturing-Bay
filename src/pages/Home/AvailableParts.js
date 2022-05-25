@@ -18,7 +18,7 @@ const AvailableParts = () => {
 
     return (
         <div className='py-10 uppercase'>
-            <h2 className='text-3xl text-center text-primary font-semibold'>Available Parts</h2>
+            <h2 className='text-2xl text-center text-primary font-bold'>Available Parts</h2>
 
             <div className="flex justify-center mx-auto mt-2">
                 <span className="inline-block w-40 h-1 bg-primary rounded-full"></span>

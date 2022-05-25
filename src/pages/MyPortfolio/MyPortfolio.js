@@ -28,6 +28,10 @@ const MyPortfolio = () => {
                     </div>
                 </div>
 
+
+
+
+
                 {/* project 1 */}
                 <div className="flex flex-col flex-wrap lg:py-4 -mb-10 lg:w-1/2 lg:pl-12 lg:text-left text-center">
 
@@ -48,7 +52,7 @@ const MyPortfolio = () => {
 
 
                     {/* project 2 */}
-                    <div className="flex flex-col mb-10 lg:items-start items-center">
+                    <div className="flex flex-col mb-5 lg:items-start items-center">
                         <div className="w-12 h-12 inline-flex items-center justify-center rounded-full bg-indigo-100 text-primary mb-5">
                             <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="w-6 h-6" viewBox="0 0 24 24">
                                 <circle cx="6" cy="6" r="3"></circle>

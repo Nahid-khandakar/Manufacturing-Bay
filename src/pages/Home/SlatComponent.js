@@ -4,6 +4,16 @@ const SlatComponent = () => {
     return (
         <div className='md:px-12 xl:px-14 my-10'>
 
+
+            <h2 className='text-2xl text-primary text-center font-bold my-5'>Business Summary</h2>
+            <div className="flex justify-center mx-auto mb-4">
+                <span className="inline-block w-40 h-1 bg-primary rounded-full"></span>
+                <span className="inline-block w-7 h-1 mx-1 bg-primary rounded-full"></span>
+                <span className="inline-block w-2 h-1 bg-primary rounded-full"></span>
+            </div>
+
+
+
             <div className="stats shadow w-full">
 
                 <div className="stat px-10">
