@@ -15,6 +15,7 @@ import MyOrder from './pages/Dashboard/MyOrder';
 import AddReview from './pages/Dashboard/AddReview';
 import MyProfile from './pages/Dashboard/MyProfile';
 import RequireAuth from './pages/Authentication/RequireAuth'
+import Footer from './pages/Shared/Footer';
 
 function App() {
   return (
@@ -53,6 +54,7 @@ function App() {
 
       </Routes>
 
+      <Footer></Footer>
       <ToastContainer />
 
     </div>
