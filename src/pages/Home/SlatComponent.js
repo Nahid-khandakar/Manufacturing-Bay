@@ -5,8 +5,8 @@ const SlatComponent = () => {
         <div className='md:px-12 xl:px-14 my-10 '>
 
 
-            <h2 className='text-2xl text-primary text-center font-bold my-5 uppercase'>Business Summary</h2>
-            <div className="flex justify-center mx-auto mb-4">
+            <h2 className='text-2xl text-primary text-center font-bold mt-5 uppercase'>Business Summary</h2>
+            <div className="flex justify-center mx-auto mt-2 mb-10">
                 <span className="inline-block w-40 h-1 bg-primary rounded-full"></span>
                 <span className="inline-block w-7 h-1 mx-1 bg-primary rounded-full"></span>
                 <span className="inline-block w-2 h-1 bg-primary rounded-full"></span>
