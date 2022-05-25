@@ -35,10 +35,10 @@ const Navbar = () => {
             user ?
                 <div className="dropdown dropdown-end">
                     <div className='flex'>
-                        <h2 className='mt-3'>{user.displayName}</h2>
+                        <h2 className='mt-3 mr-3'>{user.displayName}</h2>
 
-                        <label tabIndex="0" className="btn btn-ghost btn-circle avatar">
-                            <div className="w-10 rounded-full">
+                        <label tabIndex="0" className="btn btn-ghost btn-circle avatar mr-4">
+                            <div className="w-9 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2 ">
                                 {
                                     user.photoURL
                                         ?

@@ -1,5 +1,4 @@
 import React from 'react';
-import AddReview from '../Dashboard/AddReview';
 import AdminHelp from './AdminHelp';
 import AvailableParts from './AvailableParts';
 import Banner from './Banner';

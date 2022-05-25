@@ -29,7 +29,7 @@ const AdminHelp = () => {
                         <input type="text" placeholder="Your email" className="input input-bordered input-primary w-full my-2" />
                         <textarea className="textarea textarea-primary w-full " placeholder="Query or complain write here"></textarea>
                         <div className='mx-auto'>
-                            <input className='btn btn-primary text-white btn-sm w-full my-2' type="submit" value="submit" />
+                            <input className='btn btn-primary text-white btn-md w-full my-2' type="submit" value="submit" />
                         </div>
 
                     </form>
