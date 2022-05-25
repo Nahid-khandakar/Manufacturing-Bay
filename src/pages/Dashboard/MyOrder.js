@@ -1,44 +1,36 @@
-import { signOut } from 'firebase/auth';
-import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { useNavigate } from 'react-router-dom';
+import { useQuery } from 'react-query';
 import auth from '../../firebase.init';
+import DeleteOrder from './DeleteOrder';
 import MyOrderTable from './MyOrderTable';
+import Loading from '../Shared/Loading'
+import { useState } from 'react';
 
 
 
 const MyOrder = () => {
 
-    const [user] = useAuthState(auth);
-    const [myOrders, setMyOrders] = useState([])
-    const navigate = useNavigate()
-
-    useEffect(() => {
-        if (user) {
-            fetch(`http://localhost:5000/orders/?purchaseEmail=${user.email}`, {
-                method: 'GET',
-                headers: {
-                    'authorization': `Bearer ${localStorage.getItem('accessToken')}`
-                }
-            })
-                .then(res => {
-                    console.log('res form client ', res);
-                    if (res.status === 401 || res.status === 403) {
-                        navigate('/')
-                        signOut(auth);
-                        localStorage.removeItem("accessToken")
-                    }
-                    return res.json()
-                })
-                .then(data => {
-                    console.log(data)
-                    setMyOrders(data)
-                })
-        }
-
-    }, [user])
+    const [user, loading] = useAuthState(auth);
+    const [deleteOrder, setDeleteOrder] = useState(null)
+    // const [myOrders, setMyOrders] = useState([])
 
 
+
+    const { data: myOrders, isLoading, refetch } = useQuery('myOrders', () =>
+        fetch(`http://localhost:5000/orders/?purchaseEmail=${user.email}`, {
+            method: 'GET',
+            headers: {
+                authorization: `Bearer ${localStorage.getItem("accessToken")}`
+            }
+        }).then(res =>
+            res.json()
+        )
+    )
+
+
+    if (isLoading) {
+        return <Loading></Loading>
+    }
 
 
     return (
@@ -65,12 +57,22 @@ const MyOrder = () => {
                                     key={order._id}
                                     index={index}
                                     order={order}
+                                    setDeleteOrder={setDeleteOrder}
                                 ></MyOrderTable>)
                             }
                         </tbody>
 
                     </table>
                 </div>
+            }
+
+            {
+                deleteOrder && <DeleteOrder
+                    deleteOrder={deleteOrder}
+                    refetch={refetch}
+                    setDeleteOrder={setDeleteOrder}
+                >
+                </DeleteOrder>
             }
 
 

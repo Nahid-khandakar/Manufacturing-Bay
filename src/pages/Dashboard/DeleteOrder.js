@@ -1,6 +1,28 @@
 import React from 'react';
+import { toast } from 'react-toastify';
 
-const DeleteOrder = () => {
+const DeleteOrder = ({ deleteOrder, refetch, setDeleteOrder }) => {
+
+    const { partsName, purchaseEmail } = deleteOrder
+
+    const handleDelete = () => {
+        fetch(`http://localhost:5000/orders/${purchaseEmail}`, {
+            method: "DELETE",
+            headers: {
+                authorization: `Bearer ${localStorage.getItem("accessToken")}`
+            }
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                if (data.deletedCount) {
+                    toast.success(`${partsName} is deleted`)
+                    setDeleteOrder(null)
+                    refetch()
+                }
+            })
+    }
+
     return (
         <div>
 
@@ -8,11 +30,15 @@ const DeleteOrder = () => {
             <input type="checkbox" id="delete-order-parts" className="modal-toggle" />
             <div className="modal">
                 <div className="modal-box">
-                    <h3 className="font-bold text-lg">Congratulations random Interner user!</h3>
-                    <p className="py-4">You've been selected for a chance to get one year of subscription to use Wikipedia for free!</p>
+
+                    <h3 class="font-bold text-lg text-red-600">Sure to delete {partsName}</h3>
+
                     <div className="modal-action">
+                        <button onClick={() => handleDelete()} class="btn btn-xs btn-error">delete</button>
                         <label for="delete-order-parts" className="btn">Yay!</label>
                     </div>
+
+
                 </div>
             </div>
 

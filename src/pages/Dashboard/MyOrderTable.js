@@ -1,6 +1,6 @@
 import React from 'react';
 
-const MyOrderTable = ({ order, index }) => {
+const MyOrderTable = ({ order, index, setDeleteOrder }) => {
     return (
         <tr>
             <th>{index + 1}</th>
@@ -15,6 +15,7 @@ const MyOrderTable = ({ order, index }) => {
 
             <td>
                 <label
+                    onClick={() => setDeleteOrder(order)}
                     htmlFor="delete-order-parts"
                     className="btn btn-sm btn-error text-white">Delete
                 </label>
