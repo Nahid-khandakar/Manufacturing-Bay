@@ -16,7 +16,7 @@ const AddReview = () => {
     const handleReviewForm = (event) => {
         event.preventDefault();
 
-        const email = event.target.email.value
+
         const rating = event.target.rating.value
         const review = event.target.review.value
 
@@ -24,12 +24,33 @@ const AddReview = () => {
 
         if (rating > 0 && rating <= 5) {
 
-            fetch(`http://localhost:5000/userReview/${user.email}`, {
-                method: 'GET',
+            const email = user.email
+
+            const reviewData = {
+                email: email,
+                rating: rating,
+                review: review
+            }
+
+            console.log(reviewData)
+
+            fetch(`http://localhost:5000/userReview`, {
+                method: 'POST',
                 headers: {
+                    'content-type': 'application/json',
                     authorization: `Bearer ${localStorage.getItem("accessToken")}`
-                }
+                },
+                body: JSON.stringify(reviewData)
+
+
             })
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data)
+                    event.target.reset()
+                })
+
+
 
 
             setReviewError(false)
@@ -59,7 +80,8 @@ const AddReview = () => {
                             <label className="block mb-2 text-sm font-medium text-primary">Email</label>
 
                             <input
-                                name='email'
+                                value={user.email}
+                                readOnly
                                 placeholder='Your email'
                                 className="block w-full px-4 py-2 text-gray-700 bg-base-100 rounded-md " type="email" required />
                         </div>

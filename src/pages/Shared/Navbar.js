@@ -22,7 +22,9 @@ const Navbar = () => {
 
         <li><Link to='/home'>Home</Link></li>
 
-        <li><Link to='/dashboard'>Dashboard</Link></li>
+        {
+            user && <li><Link to='/dashboard'>Dashboard</Link></li>
+        }
 
 
         <li><Link to='/blog'>Blog</Link></li>
