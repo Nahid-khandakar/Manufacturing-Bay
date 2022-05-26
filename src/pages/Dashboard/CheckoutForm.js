@@ -133,7 +133,7 @@ const CheckoutForm = ({ paymentRequest }) => {
                         },
                     }}
                 />
-                <button type="submit" disabled={!stripe || !clientSecret} className='btn btn-sm my-5'>
+                <button type="submit" disabled={!stripe || !clientSecret || cardSuccess} className='btn btn-sm btn-primary text-white my-5'>
                     Pay
                 </button>
             </form>

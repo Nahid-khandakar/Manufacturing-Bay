@@ -10,9 +10,7 @@ const Navbar = () => {
     const [user, loading] = useAuthState(auth);
     //console.log(user)
 
-    if (loading) {
-        return <Loading></Loading>
-    }
+
 
     const handleSignOut = () => {
         signOut(auth)
@@ -35,7 +33,7 @@ const Navbar = () => {
             user ?
                 <div className="dropdown dropdown-end">
                     <div className='flex'>
-                        <h2 className='mt-3 mr-3'>{user.displayName}</h2>
+                        <h2 className='mt-3 mr-3'>{user?.displayName}</h2>
 
                         <label tabIndex="0" className="btn btn-ghost btn-circle avatar mr-4">
                             <div className="w-9 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2 ">
@@ -65,6 +63,10 @@ const Navbar = () => {
 
 
     </>
+
+    if (loading) {
+        return <Loading></Loading>
+    }
 
     return (
 

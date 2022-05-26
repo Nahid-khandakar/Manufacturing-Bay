@@ -45,7 +45,7 @@ const Login = () => {
     }
 
     if (error || googleError) {
-        setError = <p>{error?.message || googleError?.message}</p>
+        setError = <p className='text-error'>{error?.message || googleError?.message}</p>
     }
 
     //click register button

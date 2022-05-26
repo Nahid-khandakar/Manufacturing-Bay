@@ -51,6 +51,9 @@ const Blog = () => {
             {/* question -4 */}
             <div className='border-solid border-2 border-primary rounded-md p-5 my-8'>
                 <h1 className='text-xl text-primary font-bold my-5'>4. Why you do not set the state directly in React. For example, if you have const [products, setProducts] = useState([]). Why you do not set products = [...] instead, you use the setProducts</h1>
+                <p>
+                    If we update state right away, our changes may be overwritten if we call setState() later. When we directly update the state, this.state does not change immediately. Instead, it creates a pending state transition that will only return the current value if accessible after this function has been used. All of our components' states will be out of our control.
+                </p>
             </div>
 
 

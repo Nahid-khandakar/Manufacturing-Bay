@@ -46,7 +46,7 @@ const UpdateProfile = () => {
                     console.log(data)
                     event.target.reset()
                 })
-            toast.success('Review save successfully')
+            toast.success('Your Profile Update Successfully')
 
         }
 

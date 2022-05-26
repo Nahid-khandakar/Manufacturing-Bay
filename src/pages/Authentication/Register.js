@@ -38,7 +38,7 @@ const Register = () => {
 
     let signInError
     if (error || updateError) {
-        signInError = <p>{error?.message || updateError?.message}</p>
+        signInError = <p className='text-error'>{error?.message || updateError?.message}</p>
     }
 
     //click register button

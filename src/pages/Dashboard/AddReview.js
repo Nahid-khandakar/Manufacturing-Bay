@@ -55,7 +55,7 @@ const AddReview = () => {
 
 
             setReviewError(false)
-            toast.success('Review save successfully')
+            toast.success('Thank you for giving review , Review save successfully')
         } else {
             toast.error('Something error')
             setReviewError(true)
