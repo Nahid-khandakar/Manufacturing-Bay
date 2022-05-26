@@ -5,6 +5,8 @@ import DeleteOrder from './DeleteOrder';
 import MyOrderTable from './MyOrderTable';
 import Loading from '../Shared/Loading'
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { signOut } from 'firebase/auth';
 
 
 
@@ -12,7 +14,8 @@ const MyOrder = () => {
 
     const [user, loading] = useAuthState(auth);
     const [deleteOrder, setDeleteOrder] = useState(null)
-    // const [myOrders, setMyOrders] = useState([])
+    const navigate = useNavigate()
+
 
 
 
@@ -22,8 +25,15 @@ const MyOrder = () => {
             headers: {
                 authorization: `Bearer ${localStorage.getItem("accessToken")}`
             }
-        }).then(res =>
-            res.json()
+        }).then(res => {
+            console.log('res form client ', res);
+            if (res.status === 401 || res.status === 403) {
+                navigate('/')
+                signOut(auth);
+                localStorage.removeItem("accessToken")
+            }
+            return res.json()
+        }
         )
     )
 

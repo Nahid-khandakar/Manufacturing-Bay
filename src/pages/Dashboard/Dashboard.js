@@ -48,6 +48,9 @@ const Dashboard = () => {
                         {
                             admin && <>
                                 <li className='uppercase font-bold'><Link to='/dashboard/users'>Users</Link></li>
+                                <li className='uppercase font-bold'><Link to='/dashboard/addProduct'>Add Parts</Link></li>
+                                <li className='uppercase font-bold'><Link to='/dashboard/manageProduct'>Manage Parts</Link></li>
+                                <li className='uppercase font-bold'><Link to='/dashboard/manageAllOrders'>Manage Orders</Link></li>
                             </>
                         }
 

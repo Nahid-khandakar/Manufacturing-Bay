@@ -18,6 +18,10 @@ import RequireAuth from './pages/Authentication/RequireAuth'
 import Footer from './pages/Shared/Footer';
 import UpdateProfile from './pages/Dashboard/UpdateProfile';
 import Alluser from './pages/Dashboard/Alluser';
+import RequireAdmin from './pages/Dashboard/RequireAdmin';
+import AddProduct from './pages/Dashboard/AddProduct';
+import ManageProduct from './pages/Dashboard/ManageProduct';
+import ManageAllOrders from './pages/Dashboard/ManageAllOrders';
 
 function App() {
   return (
@@ -44,8 +48,23 @@ function App() {
           <Route path='myorder' element={<MyOrder></MyOrder>}></Route>
           <Route path='addreview' element={<AddReview></AddReview>}></Route>
           <Route path='updateprofile' element={<UpdateProfile></UpdateProfile>}></Route>
-          <Route path='users' element={<Alluser></Alluser>}></Route>
 
+
+          <Route path='users' element={<RequireAdmin>
+            <Alluser></Alluser>
+          </RequireAdmin>}></Route>
+
+          <Route path='addProduct' element={<RequireAdmin>
+            <AddProduct></AddProduct>
+          </RequireAdmin>}></Route>
+
+          <Route path='manageProduct' element={<RequireAdmin>
+            <ManageProduct></ManageProduct>
+          </RequireAdmin>}></Route>
+
+          <Route path='manageAllOrders' element={<RequireAdmin>
+            <ManageAllOrders></ManageAllOrders>
+          </RequireAdmin>}></Route>
 
         </Route>
 
