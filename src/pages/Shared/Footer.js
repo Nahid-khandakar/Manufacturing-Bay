@@ -67,7 +67,7 @@ const Footer = () => {
 
 
                 <div className="text-center text-zinc-900 pt-6 pb-10">
-                    © 2021 Copyright :
+                    © 2022 Copyright :
                     <span className='text-rose-800'> Nahid Khandakar</span>
                 </div>
             </footer>

@@ -1,0 +1,32 @@
+[
+    {
+        "name": "Brianna",
+        "email": "bearney0@posterous.com",
+        "rating": 3,
+        "review": "first service provider recommend for everyone"
+    },
+    {
+        "name": "Beth",
+        "email": "bbatha1@businessinsider.com",
+        "rating": 4,
+        "review": "Happy to get there service"
+    },
+    {
+        "name": "Winonah",
+        "email": "wtregian2@github.io",
+        "rating": 5,
+        "review": "There is no issue to get parts"
+    },
+    {
+        "name": "Elana",
+        "email": "epratchett3@hp.com",
+        "rating": 5,
+        "review": "Parts are authentic and good quality"
+    },
+    {
+        "name": "Randi",
+        "email": "rpearn4@apple.com",
+        "rating": 4,
+        "review": "Parts shortage in server"
+    }
+]

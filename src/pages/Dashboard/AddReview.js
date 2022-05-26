@@ -20,13 +20,15 @@ const AddReview = () => {
         const rating = event.target.rating.value
         const review = event.target.review.value
 
-
+        console.log(rating, review)
 
         if (rating > 0 && rating <= 5) {
 
             const email = user.email
+            const name = user.displayName
 
             const reviewData = {
+                name: name,
                 email: email,
                 rating: rating,
                 review: review

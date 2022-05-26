@@ -79,7 +79,7 @@ const MyPortfolio = () => {
                         <div className="flex-grow">
                             <h2 className="text-gray-900 text-lg title-font font-medium mb-3">Ema John</h2>
                             <p className="leading-relaxed text-base">Ema john is a e-commerce site very first version of real amazon . Customers can buy some selected product form this site </p>
-                            <a href='ema-john-7b966.web.app' target="blank" className='btn btn-sm btn-primary my-5 text-white'>Live Link</a>
+                            <a href='https://ema-john-7b966.web.app/' target="blank" className='btn btn-sm btn-primary my-5 text-white'>Live Link</a>
                         </div>
                     </div>
 
