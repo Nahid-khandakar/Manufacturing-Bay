@@ -28,7 +28,7 @@ const MyOrder = () => {
     )
 
 
-    if (isLoading) {
+    if (isLoading || loading) {
         return <Loading></Loading>
     }
 
