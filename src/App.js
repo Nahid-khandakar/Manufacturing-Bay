@@ -16,6 +16,7 @@ import AddReview from './pages/Dashboard/AddReview';
 import MyProfile from './pages/Dashboard/MyProfile';
 import RequireAuth from './pages/Authentication/RequireAuth'
 import Footer from './pages/Shared/Footer';
+import UpdateProfile from './pages/Dashboard/UpdateProfile';
 
 function App() {
   return (
@@ -41,6 +42,7 @@ function App() {
           <Route index element={<MyProfile></MyProfile>}></Route>
           <Route path='myorder' element={<MyOrder></MyOrder>}></Route>
           <Route path='addreview' element={<AddReview></AddReview>}></Route>
+          <Route path='updateprofile' element={<UpdateProfile></UpdateProfile>}></Route>
 
 
         </Route>

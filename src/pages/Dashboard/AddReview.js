@@ -20,7 +20,6 @@ const AddReview = () => {
         const rating = event.target.rating.value
         const review = event.target.review.value
 
-        console.log(rating, review)
 
         if (rating > 0 && rating <= 5) {
 
