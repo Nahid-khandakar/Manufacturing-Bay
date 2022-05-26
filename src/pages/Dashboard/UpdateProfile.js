@@ -16,7 +16,7 @@ const UpdateProfile = () => {
 
         if (user) {
             const name = event.target.name.value
-            const email = user.email
+            const email = user?.email
             const number = event.target.number.value
             const city = event.target.city.value
             const address = event.target.address.value
@@ -31,8 +31,8 @@ const UpdateProfile = () => {
                 address: address
             }
 
-            fetch(`http://localhost:5000/userProfile`, {
-                method: 'POST',
+            fetch(`http://localhost:5000/userProfile/${email}`, {
+                method: 'PUT',
                 headers: {
                     'content-type': 'application/json',
                     authorization: `Bearer ${localStorage.getItem("accessToken")}`
