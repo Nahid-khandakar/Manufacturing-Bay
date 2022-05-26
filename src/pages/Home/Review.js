@@ -1,24 +1,37 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useQuery } from 'react-query';
 import Loading from '../Shared/Loading';
 import ReviewCard from './ReviewCard';
 
 const Review = () => {
 
-    const { data: userReviews, isLoading } = useQuery('userReviews', () =>
+    const [userReviews, setUserReviews] = useState([])
+    useEffect(() => {
         fetch("https://pacific-citadel-88310.herokuapp.com/userReview", {
             method: 'GET',
             headers: {
                 authorization: `Bearer ${localStorage.getItem("accessToken")}`
             }
-        }).then(res =>
-            res.json()
-        )
-    )
+        })
+            .then(res => res.json())
+            .then(data => setUserReviews(data))
 
-    if (isLoading) {
-        return <Loading></Loading>
-    }
+    }, [])
+
+    // const { data: userReviews, isLoading } = useQuery('userReviews', () =>
+    //     fetch("https://pacific-citadel-88310.herokuapp.com/userReview", {
+    //         method: 'GET',
+    //         headers: {
+    //             authorization: `Bearer ${localStorage.getItem("accessToken")}`
+    //         }
+    //     }).then(res =>
+    //         res.json()
+    //     )
+    // )
+
+    // if (isLoading) {
+    //     return <Loading></Loading>
+    // }
 
 
     return (
