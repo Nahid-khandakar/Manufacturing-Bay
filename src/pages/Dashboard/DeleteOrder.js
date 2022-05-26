@@ -35,7 +35,7 @@ const DeleteOrder = ({ deleteOrder, refetch, setDeleteOrder }) => {
 
                     <div className="modal-action">
                         <button onClick={() => handleDelete()} className="btn btn-sm btn-error text-white">delete</button>
-                        <label for="delete-order-parts" className="btn btn-sm btn-success text-white">Cancel</label>
+                        <label htmlFor="delete-order-parts" className="btn btn-sm btn-success text-white">Cancel</label>
                     </div>
 
 
