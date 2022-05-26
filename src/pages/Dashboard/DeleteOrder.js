@@ -6,7 +6,7 @@ const DeleteOrder = ({ deleteOrder, refetch, setDeleteOrder }) => {
     const { partsName, purchaseEmail } = deleteOrder
 
     const handleDelete = () => {
-        fetch(`http://localhost:5000/orders/${purchaseEmail}`, {
+        fetch(`https://pacific-citadel-88310.herokuapp.com/orders/${purchaseEmail}`, {
             method: "DELETE",
             headers: {
                 authorization: `Bearer ${localStorage.getItem("accessToken")}`

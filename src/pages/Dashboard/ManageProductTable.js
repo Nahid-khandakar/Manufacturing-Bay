@@ -6,7 +6,7 @@ const ManageProductTable = ({ part, index, refetch }) => {
 
     const handleDelete = (id) => {
 
-        fetch(`http://localhost:5000/parts/${id}`, {
+        fetch(`https://pacific-citadel-88310.herokuapp.com/parts/${id}`, {
             method: 'DELETE',
             headers: {
                 authorization: `Bearer ${localStorage.getItem("accessToken")}`

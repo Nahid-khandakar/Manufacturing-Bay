@@ -35,7 +35,7 @@ const AddReview = () => {
 
             //console.log(reviewData)
 
-            fetch(`http://localhost:5000/userReview`, {
+            fetch(`https://pacific-citadel-88310.herokuapp.com/userReview`, {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json',

@@ -19,7 +19,7 @@ const Purchase = () => {
     const [quantityError, setQuantityError] = useState(false)
 
 
-    const url = `http://localhost:5000/purchase/${id}`
+    const url = `https://pacific-citadel-88310.herokuapp.com/purchase/${id}`
     const { data: purchaseItem, isLoading, refetch } = useQuery('purchaseItem', () =>
         fetch(url).then(res =>
             res.json()
@@ -76,7 +76,7 @@ const Purchase = () => {
             }
 
 
-            fetch(`http://localhost:5000/parts/${id}`, {
+            fetch(`https://pacific-citadel-88310.herokuapp.com/parts/${id}`, {
                 method: 'PUT',
                 headers: {
                     'content-type': 'application/json'

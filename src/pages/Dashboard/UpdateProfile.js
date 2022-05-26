@@ -31,7 +31,7 @@ const UpdateProfile = () => {
                 address: address
             }
 
-            fetch(`http://localhost:5000/userProfile/${email}`, {
+            fetch(`https://pacific-citadel-88310.herokuapp.com/userProfile/${email}`, {
                 method: 'PUT',
                 headers: {
                     'content-type': 'application/json',

@@ -7,7 +7,7 @@ const ManageAllOrders = () => {
 
 
     const { data: orders, isLoading, refetch } = useQuery('orders', () =>
-        fetch("http://localhost:5000/purchaseOrders").then(res =>
+        fetch("https://pacific-citadel-88310.herokuapp.com/purchaseOrders").then(res =>
             res.json()
         )
     )

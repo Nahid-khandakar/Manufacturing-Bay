@@ -13,7 +13,7 @@ const MyProfile = () => {
     const [userProfile, setUserProfile] = useState([])
 
     useEffect(() => {
-        fetch(`http://localhost:5000/userProfile/?email=${user.email}`, {
+        fetch(`https://pacific-citadel-88310.herokuapp.com/userProfile/?email=${user.email}`, {
             method: 'GET',
             headers: {
                 authorization: `Bearer ${localStorage.getItem("accessToken")}`

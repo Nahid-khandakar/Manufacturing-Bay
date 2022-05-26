@@ -5,7 +5,7 @@ const ManageAllOrderTable = ({ part: order, index, refetch }) => {
 
     const handleDelete = (id) => {
 
-        fetch(`http://localhost:5000/purchaseOrders/${id}`, {
+        fetch(`https://pacific-citadel-88310.herokuapp.com/purchaseOrders/${id}`, {
             method: 'DELETE',
             headers: {
                 authorization: `Bearer ${localStorage.getItem("accessToken")}`

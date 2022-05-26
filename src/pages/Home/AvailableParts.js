@@ -7,7 +7,7 @@ const AvailableParts = () => {
 
 
     const { data: parts, isLoading } = useQuery('parts', () =>
-        fetch("http://localhost:5000/parts").then(res =>
+        fetch("https://pacific-citadel-88310.herokuapp.com/parts").then(res =>
             res.json()
         )
     )

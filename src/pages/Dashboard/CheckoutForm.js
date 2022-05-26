@@ -18,7 +18,7 @@ const CheckoutForm = ({ paymentRequest }) => {
 
 
     useEffect(() => {
-        fetch('http://localhost:5000/create-payment-intent', {
+        fetch('https://pacific-citadel-88310.herokuapp.com/create-payment-intent', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
@@ -93,7 +93,7 @@ const CheckoutForm = ({ paymentRequest }) => {
                 email: purchaseEmail,
                 transactionId: paymentIntent.id,
             }
-            fetch(`http://localhost:5000/orders/${_id}`, {
+            fetch(`https://pacific-citadel-88310.herokuapp.com/orders/${_id}`, {
 
                 method: 'PATCH',
                 headers: {
