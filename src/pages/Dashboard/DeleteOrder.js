@@ -31,10 +31,10 @@ const DeleteOrder = ({ deleteOrder, refetch, setDeleteOrder }) => {
             <div className="modal">
                 <div className="modal-box">
 
-                    <h3 class="font-bold text-lg text-red-600 p-6">Sure to delete {partsName}</h3>
+                    <h3 className="font-bold text-lg text-red-600 p-6">Sure to delete {partsName}</h3>
 
                     <div className="modal-action">
-                        <button onClick={() => handleDelete()} class="btn btn-sm btn-error text-white">delete</button>
+                        <button onClick={() => handleDelete()} className="btn btn-sm btn-error text-white">delete</button>
                         <label for="delete-order-parts" className="btn btn-sm btn-success text-white">Cancel</label>
                     </div>
 

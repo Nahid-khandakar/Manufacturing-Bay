@@ -14,14 +14,14 @@ const MyOrderTable = ({ order, index, setDeleteOrder }) => {
                 {
                     (order.price && !order.paid) &&
                     <Link to={`/dashboard/payment/${order._id}`}>
-                        <button class="btn btn-sm btn-warning">Pay</button>
+                        <button className="btn btn-sm btn-warning">Pay</button>
                     </Link>
                 }
                 {
                     (order.price && order.paid) &&
 
                     <div>
-                        <p class="text-success ">paid</p>
+                        <p className="text-success ">paid</p>
                         <p>{order.transactionId}</p>
 
                     </div>

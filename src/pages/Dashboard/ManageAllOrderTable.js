@@ -13,7 +13,7 @@ const ManageAllOrderTable = ({ part: order, index, refetch }) => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data)
+                //console.log(data)
                 toast.success('This parts delete successfully ')
                 refetch()
             })

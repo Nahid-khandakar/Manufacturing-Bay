@@ -29,16 +29,16 @@ const Payment = () => {
         <div>
 
 
-            <div class="card w-50 max-w-md bg-base-200 shadow-xl my-12 md:ml-0 xl:ml-16">
-                <div class="card-body">
-                    <h2 class="card-title text-error font-bold">Please Pay for :  {paymentRequest.partsName}</h2>
+            <div className="card w-50 max-w-md bg-base-200 shadow-xl my-12 md:ml-0 xl:ml-16">
+                <div className="card-body">
+                    <h2 className="card-title text-error font-bold">Please Pay for :  {paymentRequest.partsName}</h2>
                     <p>Your purchase parts quantity : {paymentRequest.orderPartsQuantity}</p>
                     <p>Total amount: <span className='text-warning text-xl font-bold'>${paymentRequest.price}</span></p>
                 </div>
             </div>
 
-            <div class="card w-50 max-w-md bg-base-200 shadow-xl my-12 md:ml-0 xl:ml-16">
-                <div class="card-body">
+            <div className="card w-50 max-w-md bg-base-200 shadow-xl my-12 md:ml-0 xl:ml-16">
+                <div className="card-body">
                     <Elements stripe={stripePromise}>
                         <CheckoutForm paymentRequest={paymentRequest} />
                     </Elements>

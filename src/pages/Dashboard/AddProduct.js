@@ -50,42 +50,42 @@ const AddProduct = () => {
         <div>
 
 
-            <div class="lg:w-2/6 md:w-1/2 bg-base-200 rounded-lg p-8 flex flex-col md:ml-24 w-full my-6">
+            <div className="lg:w-2/6 md:w-1/2 bg-base-200 rounded-lg p-8 flex flex-col md:ml-24 w-full my-6">
 
-                <h2 class="text-primary text-lg font-medium title-font mb-5">Add a Parts </h2>
+                <h2 className="text-primary text-lg font-medium title-font mb-5">Add a Parts </h2>
 
                 <form onSubmit={handleAddProdcuct}>
 
-                    <div class="relative mb-4">
-                        <label for="full-name" class="leading-7 text-sm text-gray-600">Parts Name</label>
-                        <input type="text" name="name" class="w-full bg-white rounded border border-gray-300  text-base  text-gray-700 py-1 px-3 " required />
+                    <div className="relative mb-4">
+                        <label htmlFor="full-name" className="leading-7 text-sm text-gray-600">Parts Name</label>
+                        <input type="text" name="name" className="w-full bg-white rounded border border-gray-300  text-base  text-gray-700 py-1 px-3 " required />
                     </div>
 
-                    <div class="relative mb-4">
-                        <label for="full-name" class="leading-7 text-sm text-gray-600">Image</label>
-                        <input type="text" name='image' class="w-full bg-white rounded border border-gray-300  text-base  text-gray-700 py-1 px-3 " />
+                    <div className="relative mb-4">
+                        <label htmlFor="full-name" className="leading-7 text-sm text-gray-600">Image</label>
+                        <input type="text" name='image' className="w-full bg-white rounded border border-gray-300  text-base  text-gray-700 py-1 px-3 " />
                     </div>
 
-                    <div class="relative mb-4">
-                        <label for="full-name" class="leading-7 text-sm text-gray-600">Description</label>
+                    <div className="relative mb-4">
+                        <label htmlFor="full-name" className="leading-7 text-sm text-gray-600">Description</label>
 
-                        <textarea name="description" class="w-full bg-white rounded border border-gray-300  text-base  text-gray-700 py-1 px-3 " required></textarea>
+                        <textarea name="description" className="w-full bg-white rounded border border-gray-300  text-base  text-gray-700 py-1 px-3 " required></textarea>
 
                     </div>
 
-                    <div class="relative mb-4">
-                        <label for="full-name" class="leading-7 text-sm text-gray-600">Available Quantity</label>
-                        <input type="number" name="available" class="w-full bg-white rounded border border-gray-300  text-base  text-gray-700 py-1 px-3 " required />
+                    <div className="relative mb-4">
+                        <label htmlFor="full-name" className="leading-7 text-sm text-gray-600">Available Quantity</label>
+                        <input type="number" name="available" className="w-full bg-white rounded border border-gray-300  text-base  text-gray-700 py-1 px-3 " required />
                     </div>
 
-                    <div class="relative mb-4">
-                        <label for="full-name" class="leading-7 text-sm text-gray-600">Minimum Quantity</label>
-                        <input type="number" name="minimum" class="w-full bg-white rounded border border-gray-300  text-base  text-gray-700 py-1 px-3 " required />
+                    <div className="relative mb-4">
+                        <label htmlFor="full-name" className="leading-7 text-sm text-gray-600">Minimum Quantity</label>
+                        <input type="number" name="minimum" className="w-full bg-white rounded border border-gray-300  text-base  text-gray-700 py-1 px-3 " required />
                     </div>
 
-                    <div class="relative mb-4">
-                        <label for="full-name" class="leading-7 text-sm text-gray-600">Price</label>
-                        <input type="number" name="price" class="w-full bg-white rounded border border-gray-300  text-base  text-gray-700 py-1 px-3 " required />
+                    <div className="relative mb-4">
+                        <label htmlFor="full-name" className="leading-7 text-sm text-gray-600">Price</label>
+                        <input type="number" name="price" className="w-full bg-white rounded border border-gray-300  text-base  text-gray-700 py-1 px-3 " required />
                     </div>
 
                     <input className='btn btn-primary text-white ' type="submit" value="ADD" />

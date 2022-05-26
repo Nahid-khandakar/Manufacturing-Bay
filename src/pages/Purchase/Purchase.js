@@ -154,20 +154,20 @@ const Purchase = () => {
                             <form className='' onSubmit={handlePurchaseForm}>
 
                                 <div className='my-2'>
-                                    <input type="text" class="input input-bordered  w-full max-w-sm"
+                                    <input type="text" className="input input-bordered  w-full max-w-sm"
                                         value={purchaseItem.name} disabled
                                     />
                                 </div>
 
                                 <div className='my-2'>
-                                    <input type="text" class="input input-bordered w-full max-w-sm"
+                                    <input type="text" className="input input-bordered w-full max-w-sm"
                                         value={user?.displayName} disabled
                                     />
 
                                 </div>
 
                                 <div className='my-2'>
-                                    <input type="email" class="input input-bordered  w-full max-w-sm"
+                                    <input type="email" className="input input-bordered  w-full max-w-sm"
                                         value={user?.email}
                                         disabled
                                     />
