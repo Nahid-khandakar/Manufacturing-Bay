@@ -33,7 +33,7 @@ const AddReview = () => {
                 review: review
             }
 
-            console.log(reviewData)
+            //console.log(reviewData)
 
             fetch(`http://localhost:5000/userReview`, {
                 method: 'POST',

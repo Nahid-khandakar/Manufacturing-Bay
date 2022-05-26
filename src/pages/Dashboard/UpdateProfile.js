@@ -1,17 +1,55 @@
 import React from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { toast } from 'react-toastify';
+import auth from '../../firebase.init';
+import Loading from '../Shared/Loading';
 
 const UpdateProfile = () => {
+
+    const [user, loading] = useAuthState(auth);
+    if (loading) {
+        return <Loading></Loading>
+    }
 
     const handleUpdateProfile = (event) => {
         event.preventDefault();
 
-        const name = event.target.name.value
-        const email = event.target.email.value
-        const number = event.target.number.value
-        const city = event.target.city.value
-        const address = event.target.address.value
+        if (user) {
+            const name = event.target.name.value
+            const email = user.email
+            const number = event.target.number.value
+            const city = event.target.city.value
+            const address = event.target.address.value
 
-        console.log(name, email, number, city, address)
+
+
+            const updateProfile = {
+                name: name,
+                email: email,
+                number: number,
+                city: city,
+                address: address
+            }
+
+            fetch(`http://localhost:5000/userProfile`, {
+                method: 'POST',
+                headers: {
+                    'content-type': 'application/json',
+                    authorization: `Bearer ${localStorage.getItem("accessToken")}`
+                },
+                body: JSON.stringify(updateProfile)
+
+
+            })
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data)
+                    event.target.reset()
+                })
+            toast.success('Review save successfully')
+
+        }
+
     }
 
 
@@ -32,7 +70,7 @@ const UpdateProfile = () => {
 
                     <div class="relative mb-4">
                         <label for="full-name" class="leading-7 text-sm text-gray-600">Email</label>
-                        <input type="email" name="email" class="w-full bg-white rounded border border-gray-300  text-base  text-gray-700 py-1 px-3 " required />
+                        <input type="email" value={user.email} readOnly class="w-full bg-white rounded border border-gray-300  text-base  text-gray-700 py-1 px-3 " />
                     </div>
 
                     <div class="relative mb-4">
