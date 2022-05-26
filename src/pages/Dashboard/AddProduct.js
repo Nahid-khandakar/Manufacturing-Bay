@@ -88,7 +88,7 @@ const AddProduct = () => {
                         <input type="number" name="price" class="w-full bg-white rounded border border-gray-300  text-base  text-gray-700 py-1 px-3 " required />
                     </div>
 
-                    <input className='btn btn-primary text-white ' type="submit" value="Update" />
+                    <input className='btn btn-primary text-white ' type="submit" value="ADD" />
 
                 </form>
 

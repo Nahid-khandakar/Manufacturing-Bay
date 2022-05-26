@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const MyOrderTable = ({ order, index, setDeleteOrder }) => {
     return (
@@ -6,10 +7,14 @@ const MyOrderTable = ({ order, index, setDeleteOrder }) => {
             <th>{index + 1}</th>
             <td>{order.partsName}</td>
             <td>{order.orderPartsQuantity}</td>
-            <td>{order.price}</td>
+            <td>${order.price}</td>
 
             <td>
-                <button class="btn btn-sm btn-warning">Pay</button>
+
+                <Link to={`/dashboard/payment/${order._id}`}>
+                    <button class="btn btn-sm btn-warning">Pay</button>
+                </Link>
+
             </td>
 
 
