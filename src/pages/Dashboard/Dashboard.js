@@ -1,9 +1,15 @@
 import React from 'react';
 import { Link, Outlet } from 'react-router-dom';
 import { FaArrowRight } from 'react-icons/fa';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import useAdmin from '../../hook/useAdmin';
+import auth from '../../firebase.init';
 
 
 const Dashboard = () => {
+
+    const [user] = useAuthState(auth)
+    const [admin] = useAdmin(user)
     return (
         <div>
 
@@ -26,9 +32,27 @@ const Dashboard = () => {
                     <ul className="menu px-6 py-12 overflow-y-auto w-80 bg-base-100 text-base-content">
 
 
+
                         <li className='uppercase font-bold'><Link to='/dashboard'>My Profile</Link></li>
-                        <li className='uppercase font-bold'><Link to='/dashboard/myorder'>My Order</Link></li>
-                        <li className='uppercase font-bold'><Link to='/dashboard/addreview'>Add Review</Link></li>
+
+
+                        {
+                            !admin && <>
+                                <li className='uppercase font-bold'><Link to='/dashboard/myorder'>My Order</Link></li>
+                                <li className='uppercase font-bold'><Link to='/dashboard/addreview'>Add Review</Link></li>
+                            </>
+                        }
+
+
+
+                        {
+                            admin && <>
+                                <li className='uppercase font-bold'><Link to='/dashboard/users'>Users</Link></li>
+                            </>
+                        }
+
+
+
 
 
 

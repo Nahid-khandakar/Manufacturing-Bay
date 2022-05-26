@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { useQuery } from 'react-query';
 import { Link } from 'react-router-dom';
 import auth from '../../firebase.init';
 import Loading from '../Shared/Loading';
@@ -26,18 +25,6 @@ const MyProfile = () => {
     }, [user])
 
 
-
-
-    // const { data: userProfile, isLoading, } = useQuery('userProfile', () =>
-    //     fetch(`http://localhost:5000/userProfile/?email=${user.email}`, {
-    //         method: 'GET',
-    //         headers: {
-    //             authorization: `Bearer ${localStorage.getItem("accessToken")}`
-    //         }
-    //     }).then(res =>
-    //         res.json()
-    //     )
-    // )
 
     if (loading) {
         return <Loading></Loading>
