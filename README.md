@@ -4,7 +4,7 @@ In Manufacturing Bay we manufacture different type car parts and manage those pa
 
 
 ## live link :
--Link: https://stokeify.firebaseapp.com/
+-Link: https://manufacturing-bay.web.app/
 
 
 ## Features and Functionality
