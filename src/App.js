@@ -5,7 +5,6 @@ import Register from './pages/Authentication/Register';
 import Blog from './pages/Blog/Blog';
 import Error404 from './pages/Error404/Error404';
 import Home from './pages/Home/Home';
-import MyPortfolio from './pages/MyPortfolio/MyPortfolio';
 import Purchase from './pages/Purchase/Purchase';
 import Navbar from './pages/Shared/Navbar';
 import { ToastContainer } from 'react-toastify';
@@ -23,6 +22,7 @@ import AddProduct from './pages/Dashboard/AddProduct';
 import ManageProduct from './pages/Dashboard/ManageProduct';
 import ManageAllOrders from './pages/Dashboard/ManageAllOrders';
 import Payment from './pages/Dashboard/Payment';
+import AboutUs from './pages/AboutUs/AboutUs';
 
 function App() {
   return (
@@ -37,7 +37,7 @@ function App() {
         <Route path='/' element={<Home></Home>}></Route>
         <Route path='/home' element={<Home></Home>}></Route>
         <Route path='/blog' element={<Blog></Blog>}></Route>
-        <Route path='/myPortfolio' element={<MyPortfolio></MyPortfolio>}></Route>
+        <Route path='/aboutus' element={<AboutUs></AboutUs>}></Route>
 
         <Route path='/purchase/:id' element={<RequireAuth>
           <Purchase></Purchase>
